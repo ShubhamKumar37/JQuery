@@ -82,8 +82,8 @@
 //   $(".red-box, .blue-box, .green-box  ").empty();
 // })
 
-$(function()
-{
+// $(function()
+// {
    // attr(), prop(), val();
   //  const specialLink = $("#link");
   //  console.log(specialLink.attr("href")); 
@@ -94,7 +94,23 @@ $(function()
 //   console.log(typeof checkedBox.attr("checked")); // This will be string
 //   console.log(checkedBox.prop("checked"));  // This will be boolean 
 //  checkedBox.prop("checked", true); // This will set the checked property to true
-  console.log($("input:text").val());
-  console.log($("input[type='range']").val());
-  $("input:text").val("hello");
-})
+//   console.log($("input:text").val());
+//   console.log($("input[type='range']").val());
+//   $("input:text").val("hello");
+// })
+
+$(function(){
+  let image = [
+    "./images/laptop-mobile_small.jpg",
+    "./images/laptop-on-table_small.jpg",
+    "./images/people-office-group-team_small.jpg",
+  ];
+  let i = 0; 
+  const banner = $("#banner");
+
+  setInterval(() =>
+    {
+      banner.attr("src", image[i]);
+      i = (i + 1) % image.length;
+    }, 2000);
+}); 
