@@ -99,18 +99,37 @@
 //   $("input:text").val("hello");
 // })
 
-$(function(){
-  let image = [
-    "./images/laptop-mobile_small.jpg",
-    "./images/laptop-on-table_small.jpg",
-    "./images/people-office-group-team_small.jpg",
-  ];
-  let i = 0; 
-  const banner = $("#banner");
+// $(function(){
+//   let image = [
+//     "./images/laptop-mobile_small.jpg",
+//     "./images/laptop-on-table_small.jpg",
+//     "./images/people-office-group-team_small.jpg",
+//   ];
+//   let i = 0; 
+//   const banner = $("#banner");
 
-  setInterval(() =>
-    {
-      banner.attr("src", image[i]);
-      i = (i + 1) % image.length;
-    }, 2000);
-}); 
+  // setInterval(() =>
+  //   {
+  //     banner.attr("src", image[i]);
+  //     i = (i + 1) % image.length;
+  //   }, 2000);
+//   banner.data("bannerImages", image);
+//   console.log(banner.data("bannerImages"));
+//   banner.data("newName", "Shubham Kumar");
+//   console.log(banner.data("newName"));
+//   banner.removeData("newName");
+//   console.log(banner.data());
+
+//   console.log($("p:first").data("my-data"));
+// }); 
+
+$(function()
+{
+  const firstPara = $("p:first");
+  console.log(firstPara.text()); // This only have the text beside leaving any tag inside selected eleemnt but the content of it still be here
+  console.log(firstPara.html()); // This get everthing inside the tag we select
+
+  // firstPara.text("<h1>Hello world</h1>"); // This will keep the given value as a text even if it is a html
+  // firstPara.html("<h1>Hello world</h1>");
+  firstPara.html(firstPara.html() + "<h1>Hello world</h1>");
+})
