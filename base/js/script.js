@@ -48,47 +48,47 @@
 // }); 
 
 // $(function () {
-  // $(".blue-box").before(function () {
-  //   return "<div class='blue-box'>Blue box 2</div>"
-  // })
+// $(".blue-box").before(function () {
+//   return "<div class='blue-box'>Blue box 2</div>"
+// })
 
-  // $(".blue-box").before($(".red-box")) // This will move the div actually
-  // $(".red-box").after("<div class='red-box'>Red box 2</div>")
-  // $(".green-box").after("<div class='green-box'>Red box 2</div>")
+// $(".blue-box").before($(".red-box")) // This will move the div actually
+// $(".red-box").after("<div class='red-box'>Red box 2</div>")
+// $(".green-box").after("<div class='green-box'>Red box 2</div>")
 
-  
+
 // })
 
 // $(function()
 // {
-  // $("li").replaceWith("<li>Replaced</li>"); // This will help to replace the element and what ever we have selected
+// $("li").replaceWith("<li>Replaced</li>"); // This will help to replace the element and what ever we have selected
 
-  // const firstList = $("li:first");
-  // $("p:first").replaceWith(firstList);
-  
-  // $(".red-box, .blue-box").replaceWith($(".green-box"));
-  // $("<div class='green-box'>This is green box</div>").replaceAll(".red-box, .blue-box")
+// const firstList = $("li:first");
+// $("p:first").replaceWith(firstList);
+
+// $(".red-box, .blue-box").replaceWith($(".green-box"));
+// $("<div class='green-box'>This is green box</div>").replaceAll(".red-box, .blue-box")
 // })
 
 // $(function()
 // {
-  // $("li").remove();
-  // $("form").children().not("input:email, input:number, textarea, br").remove();
+// $("li").remove();
+// $("form").children().not("input:email, input:number, textarea, br").remove();
 
-  // const detachedList = $("li").detach();
-  // $("#content").append(detachedList); // Remove also do this but it will lost its events and context where detach does not so it is recommennded to use detach
+// const detachedList = $("li").detach();
+// $("#content").append(detachedList); // Remove also do this but it will lost its events and context where detach does not so it is recommennded to use detach
 
-  // $("p:first").empty(); // It will truncate the content
+// $("p:first").empty(); // It will truncate the content
 //   $(".red-box, .blue-box, .green-box  ").empty();
 // })
 
 // $(function()
 // {
-   // attr(), prop(), val();
-  //  const specialLink = $("#link");
-  //  console.log(specialLink.attr("href")); 
-  //  console.log(specialLink.attr("title")); 
-  // specialLink.attr("href", "https://google.com");
+// attr(), prop(), val();
+//  const specialLink = $("#link");
+//  console.log(specialLink.attr("href")); 
+//  console.log(specialLink.attr("title")); 
+// specialLink.attr("href", "https://google.com");
 
 //   const checkedBox = $("input:checkbox");
 //   console.log(typeof checkedBox.attr("checked")); // This will be string
@@ -108,6 +108,7 @@
 //   let i = 0; 
 //   const banner = $("#banner");
 
+<<<<<<< Updated upstream
   // setInterval(() =>
   //   {
   //     banner.attr("src", image[i]);
@@ -133,3 +134,180 @@ $(function()
   // firstPara.html("<h1>Hello world</h1>");
   firstPara.html(firstPara.html() + "<h1>Hello world</h1>");
 })
+=======
+//   setInterval(() =>
+//     {
+//       banner.attr("src", image[i]);
+//       i = (i + 1) % image.length;
+//     }, 2000);
+// }); 
+
+// $(function()
+// {
+//   $("#banner").hide();
+//   const redbox = $(".red-box");
+//   console.log(redbox.css("width")); // This will be string
+//   console.log(redbox.width()); // This will be number
+//   console.log(redbox.height()); // This will be number
+
+//   $(".red-box").css("background-color", "orange")
+//   $(".red-box").css("width", "+=20px")
+//   $("p").css("font-size", "30px");
+
+//   const properties = ["background-color", "height", "width"];
+//   console.log(redbox.css(properties)); // This will return a object
+//   console.log(properties["background-color"]);
+//   // console.log(redbox.css("background-color"));
+
+//   redbox.css("user-select", "none");
+
+// })
+
+// $(function () {
+//   $("a").addClass('fancy-link');
+//   $("p").addClass("large emphasize")
+
+//   $("li li").addClass(function (index) {
+//     $(this).addClass("item-" + (index + 1));
+//   });
+
+//   $("div").addClass(function (index, currentClass) {
+//     if (currentClass === "dummy") return "blue-box";
+//     else return "item-" + (index + 1);
+//   });
+
+//   $(".red-box").removeClass("red-box").addClass("blue-box")
+//   $(".dummy").removeClass("dummy, blue-box").addClass("green-box");
+//   console.log($(".dummy"))
+// })
+
+// $(function () {
+// $("#btn-click").click(function (event) {
+//   console.log(event);
+//   alert("You clicked the button");
+// })
+
+// $(".red-box").click(function () {
+//   $(this).css("opacity", "0.5");
+// })
+// $(".red-box").click();
+
+// $("#btn-hover").hover(function (){
+//   alert("You hovered the button");
+// });
+
+// $(".green-box").hover(function () {
+//   $(this).text("I was hovered");
+// })
+
+// $(".blue-box").mouseenter(function () {
+//   $(this).stop().fadeTo(500, 0.3);
+// })
+// $(".blue-box").mouseleave(function () {
+//   $(this).stop().fadeTo(500, 1);
+// })
+
+// $(".blue-box").hover(function () {
+//   $(this).stop().fadeTo(500, 0.3);
+// }, function () {
+
+//   $(this).stop().fadeTo(500, 1);
+// })
+
+
+//   const banner = $("#banner");
+//   let count = 1;
+//   let image = [
+//     "./images/laptop-mobile_small.jpg",
+//     "./images/laptop-on-table_small.jpg",
+//     "./images/people-office-group-team_small.jpg",
+//   ];
+//   banner.on("click", function () { return imageChangeHandler(count, image, banner) });
+//   const counter = $("#counter");
+//   let i = 1;
+//   $("html").on("click keydown", function () { return eventLogger(counter, i) })
+// })
+
+// function eventLogger(counter, i) {
+//   counter.text(i++);
+//   console.log("This is event from click or keydown is fired");
+// }
+// function imageChangeHandler (count, image, banner) {
+//     count = count + 1;
+//     $(banner).fadeOut(function () {
+//       banner.attr("src", image[count % image.length]).fadeIn();
+//     })
+
+//   }
+
+// $(function () {
+// $("p").on("click", function (param) {  
+//   $(this).slideUp();
+// })
+
+// $("#content").append("<p>This is a new dynamically added p tag</p>"); // Because this p tag is added dynamically so the event is not attached to this.
+// So to solve this we have delegated events
+
+// $("#content").on("click", "p", function () // The second parameter will be the selector for which the event should work 
+// {
+//   $(this).slideUp();
+// })
+
+//   $("body").on("mouseenter", "li li", function () {
+//     $(this).css("color", "green");
+//   })
+// })
+
+// $(function () {
+
+//   function greetUser(data)  {
+//   console.log("Hello " + data.name + " you are " + data.age + " years old and you were born on " + data.birth);
+// }
+
+// $("#btn-click").click({
+//   name: "Shubham Kumar",
+//   age: 22,
+//   birth: "06-01-1998"
+// }, function (event) {
+//   greetUser(event.data);
+//   console.log("This is the data inside the event", event.data);
+// });
+// })
+
+// $(function () {
+//   const banner = $("img");
+//   banner.css("width", "30%").css("opacity", "0.6");
+
+//   banner.hover(function () {
+//     $(this).stop().fadeTo(400, 1);
+//   }, function () {
+//     $(this).stop().fadeTo(400, 0.6);
+//   });
+
+//   banner.on("click", function () {  
+//     const newImageUrl = $(this).attr("src");
+//     const newImage = $("<img>").attr("src", newImageUrl).css("width", "30%");
+//     $(".lightbox").empty().fadeIn(1000).append(newImage).fadeIn(1000);
+//   });
+
+//   $(".lightbox").on("click", function()
+// {
+//   // $(this).fadeOut(1000, function () {
+//   // })
+//     $(this).empty().fadeOut(1000);
+// });
+// })
+
+// $(function () {
+//   $("html").keydown(function (event) {
+//     console.log("You pressed a key", event.which);
+//     if(event.which ==  39)
+//     {
+//       $(".blue-box").stop().animate({
+//         "margin-left": "+=10px"
+//       })
+//     }
+
+//   })
+// })
+>>>>>>> Stashed changes
