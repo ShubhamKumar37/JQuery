@@ -108,11 +108,11 @@
 //   let i = 0; 
 //   const banner = $("#banner");
 
-  // setInterval(() =>
-  //   {
-  //     banner.attr("src", image[i]);
-  //     i = (i + 1) % image.length;
-  //   }, 2000);
+// setInterval(() =>
+//   {
+//     banner.attr("src", image[i]);
+//     i = (i + 1) % image.length;
+//   }, 2000);
 //   banner.data("bannerImages", image);
 //   console.log(banner.data("bannerImages"));
 //   banner.data("newName", "Shubham Kumar");
@@ -306,6 +306,43 @@
 //         "margin-left": "+=10px"
 //       })
 //     }
-
 //   })
 // })
+
+$(function () {
+  // const allInput = $("input:text, input[type='email'], textarea");
+
+  // allInput.focus(function () {
+  //   $(this).css("box-shadow", "10px 10px 10px black");
+  // })
+
+  // allInput.blur(function () {
+  //   $(this).css("box-shadow", "none");
+  // })
+
+  // const textInput = $("input:text");
+  // textInput.blur(function () {   
+  //   let text = $(this).val();
+  //   if(text.trim().length < 3) $(this).css("box-shadow", "10px 10px 10px red");
+  //   else $(this).css("box-shadow", "10px 10px 10px green");
+  // })
+
+  $("input:checkbox").change(function () {
+      const isChecked = $(this).is(":checked");
+      if(isChecked)
+      {
+        $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px green");
+      }
+      else $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px red");
+  })
+
+
+  $("#selection").change(function()
+{
+  const selectedValue = $(":selected");
+  console.log("This is the selected value = ", selectedValue.val()); // This will give the value of the selected option
+  console.log("This is the selected value = ", selectedValue.text()); // This will give the innerText of the selected option
+  alert(selectedValue.text());
+
+});
+})
