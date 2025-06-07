@@ -309,40 +309,109 @@
 //   })
 // })
 
+// $(function () {
+// const allInput = $("input:text, input[type='email'], textarea");
+
+// allInput.focus(function () {
+//   $(this).css("box-shadow", "10px 10px 10px black");
+// })
+
+// allInput.blur(function () {
+//   $(this).css("box-shadow", "none");
+// })
+
+// const textInput = $("input:text");
+// textInput.blur(function () {   
+//   let text = $(this).val();
+//   if(text.trim().length < 3) $(this).css("box-shadow", "10px 10px 10px red");
+//   else $(this).css("box-shadow", "10px 10px 10px green");
+// })
+
+//   $("input:checkbox").change(function () {
+//       const isChecked = $(this).is(":checked");
+//       if(isChecked)
+//       {
+//         $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px green");
+//       }
+//       else $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px red");
+//   })
+
+
+//   $("#selection").change(function()
+// {
+//   const selectedValue = $(":selected");
+//   console.log("This is the selected value = ", selectedValue.val()); // This will give the value of the selected option
+//   console.log("This is the selected value = ", selectedValue.text()); // This will give the innerText of the selected option
+//   alert(selectedValue.text());
+
+// });
+
+// $(function () {
+//   $("form").submit(function (event) {
+//     const textArea = $("textarea");
+//     if(textArea.val().trim() == "")
+//     {
+//       textArea.css("box-shadow", "10px 10px 10px red");
+//       event.preventDefault();
+//       return ;
+//     }
+
+//     textArea.css("box-shadow", "10px 10px 10px green");
+//     alert("Data submitted");
+//   })
+// })
+
 $(function () {
-  // const allInput = $("input:text, input[type='email'], textarea");
+  $("form").submit(function (event) {
+    const name = $("#name").val();
+    const password = $("#password").val();
+    const checkbox = $("#checkbox").is(":checked");
+    console.log("This is check box and its type of =", checkbox, typeof checkbox);
+    const textarea = $("#message").val();
 
-  // allInput.focus(function () {
-  //   $(this).css("box-shadow", "10px 10px 10px black");
-  // })
-
-  // allInput.blur(function () {
-  //   $(this).css("box-shadow", "none");
-  // })
-
-  // const textInput = $("input:text");
-  // textInput.blur(function () {   
-  //   let text = $(this).val();
-  //   if(text.trim().length < 3) $(this).css("box-shadow", "10px 10px 10px red");
-  //   else $(this).css("box-shadow", "10px 10px 10px green");
-  // })
-
-  $("input:checkbox").change(function () {
-      const isChecked = $(this).is(":checked");
-      if(isChecked)
-      {
-        $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px green");
-      }
-      else $(this).add("label[for='cb'").css("box-shadow", "10px 10px 10px red");
-  })
-
-
-  $("#selection").change(function()
-{
-  const selectedValue = $(":selected");
-  console.log("This is the selected value = ", selectedValue.val()); // This will give the value of the selected option
-  console.log("This is the selected value = ", selectedValue.text()); // This will give the innerText of the selected option
-  alert(selectedValue.text());
-
+    validateName(name, event);
+    validatePassword(password, event);
+    validateTextArea(textarea, event);
+    validateCheckbox(checkbox, event);
+  });
 });
-})
+function validateName(name, event) {
+  if (name.trim() == "") {
+    $("#name-feedback").empty().text("Please enter your name").css("color", "red");
+    event.preventDefault();
+    return false;
+  }
+   $("#name-feedback").empty();
+
+  return true;
+}
+
+function validatePassword(password, event) {
+  if (password.trim() == "") {
+    $("#password-feedback").empty().text("Please enter your password").css("color", "red");
+    event.preventDefault();
+    return false;
+  }
+  $("#password-feedback").empty();
+  return true;
+}
+
+function validateTextArea(textarea, event) {
+  if (textarea.trim() == "" || textarea.length < 10) {
+    $("#message-feedback").empty().text("Please enter your message").css("color", "red");
+    event.preventDefault();
+    return false;
+  }
+  $("#message-feedback").empty();
+  return true;
+}
+
+function validateCheckbox(check, event) {
+  if (check === false) {
+    $("#checkbox-feedback").empty().text("Please check the checkbox").css("color", "red");
+    event.preventDefault();
+    return false;
+  }
+  $("#checkbox-feedback").empty();
+  return true;
+}
