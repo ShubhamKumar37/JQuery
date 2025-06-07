@@ -108,7 +108,6 @@
 //   let i = 0; 
 //   const banner = $("#banner");
 
-<<<<<<< Updated upstream
   // setInterval(() =>
   //   {
   //     banner.attr("src", image[i]);
@@ -124,17 +123,17 @@
 //   console.log($("p:first").data("my-data"));
 // }); 
 
-$(function()
-{
-  const firstPara = $("p:first");
-  console.log(firstPara.text()); // This only have the text beside leaving any tag inside selected eleemnt but the content of it still be here
-  console.log(firstPara.html()); // This get everthing inside the tag we select
+// $(function()
+// {
+//   const firstPara = $("p:first");
+//   console.log(firstPara.text()); // This only have the text beside leaving any tag inside selected eleemnt but the content of it still be here
+//   console.log(firstPara.html()); // This get everthing inside the tag we select
 
-  // firstPara.text("<h1>Hello world</h1>"); // This will keep the given value as a text even if it is a html
-  // firstPara.html("<h1>Hello world</h1>");
-  firstPara.html(firstPara.html() + "<h1>Hello world</h1>");
-})
-=======
+//   // firstPara.text("<h1>Hello world</h1>"); // This will keep the given value as a text even if it is a html
+//   // firstPara.html("<h1>Hello world</h1>");
+//   firstPara.html(firstPara.html() + "<h1>Hello world</h1>");
+// })
+
 //   setInterval(() =>
 //     {
 //       banner.attr("src", image[i]);
@@ -310,4 +309,3 @@ $(function()
 
 //   })
 // })
->>>>>>> Stashed changes
