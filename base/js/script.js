@@ -361,57 +361,112 @@
 //   })
 // })
 
+// $(function () {
+//   $("form").submit(function (event) {
+//     const name = $("#name").val();
+//     const password = $("#password").val();
+//     const checkbox = $("#checkbox").is(":checked");
+//     console.log("This is check box and its type of =", checkbox, typeof checkbox);
+//     const textarea = $("#message").val();
+
+//     validateName(name, event);
+//     validatePassword(password, event);
+//     validateTextArea(textarea, event);
+//     validateCheckbox(checkbox, event);
+//   });
+// });
+// function validateName(name, event) {
+//   if (name.trim() == "") {
+//     $("#name-feedback").empty().text("Please enter your name").css("color", "red");
+//     event.preventDefault();
+//     return false;
+//   }
+//    $("#name-feedback").empty();
+
+//   return true;
+// }
+
+// function validatePassword(password, event) {
+//   if (password.trim() == "") {
+//     $("#password-feedback").empty().text("Please enter your password").css("color", "red");
+//     event.preventDefault();
+//     return false;
+//   }
+//   $("#password-feedback").empty();
+//   return true;
+// }
+
+// function validateTextArea(textarea, event) {
+//   if (textarea.trim() == "" || textarea.length < 10) {
+//     $("#message-feedback").empty().text("Please enter your message").css("color", "red");
+//     event.preventDefault();
+//     return false;
+//   }
+//   $("#message-feedback").empty();
+//   return true;
+// }
+
+// function validateCheckbox(check, event) {
+//   if (check === false) {
+//     $("#checkbox-feedback").empty().text("Please check the checkbox").css("color", "red");
+//     event.preventDefault();
+//     return false;
+//   }
+//   $("#checkbox-feedback").empty();
+//   return true;
+// }
+
+// $(function () {
+//   // $("#code").load("js/data.js");
+//   $("#code").load("js/script.js", function (response, status) {
+//     if(status == "error") alert("Error fetching data");
+//     console.log("This is the response = ", response);
+//   })
+// })
+
+// $(function () {
+//   let data = [];
+//   const flickerUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+//   $.getJSON(flickerUrl, {
+//     tags: "pizza",
+//     format: "json",
+//   }).done(function (data) {
+//     console.log("flicker this = ", this);
+//     console.log("flicker data = ", data.items);
+//     // alert("Data fetched successfully");
+
+//     data = data.items;
+//     // for (let i = 0; i < data.length; i++) {
+//     //   const newImage = $("<img>");
+//     //   newImage.attr("src", data[i].media.m);
+//     //   $("#images").append(newImage);
+//     // }
+//     $.each(data, function (index, value) {
+//       console.log(index, " = ", value);
+//       const newImage = $("<img>");
+//       newImage.attr("src", value.media.m).appendTo("#images");
+//       // $("#images").append(newImage);
+//     })
+//   }).fail(function () {
+//     console.log("Error fetching data");
+//     // alert("data not fetched");
+//   })
+// })
+
 $(function () {
-  $("form").submit(function (event) {
-    const name = $("#name").val();
-    const password = $("#password").val();
-    const checkbox = $("#checkbox").is(":checked");
-    console.log("This is check box and its type of =", checkbox, typeof checkbox);
-    const textarea = $("#message").val();
-
-    validateName(name, event);
-    validatePassword(password, event);
-    validateTextArea(textarea, event);
-    validateCheckbox(checkbox, event);
+  const pokeApi = "https://pokeapi.co/api/v2/type/13";
+  let data;
+  $.getJSON(pokeApi).done(function (data) {
+    console.log("This is the data fetched = ", data);
+    $.each(data.moves, function (index, value) {
+      const newP = $("<p>");
+      newP.text("Move name is " + value.name);
+      $("#all-move").append(newP);
+    })
+  }).fail(function () {
+    console.log("API fails");
+  }).always(function () {
+    console.log("This will always run");
   });
-});
-function validateName(name, event) {
-  if (name.trim() == "") {
-    $("#name-feedback").empty().text("Please enter your name").css("color", "red");
-    event.preventDefault();
-    return false;
-  }
-   $("#name-feedback").empty();
 
-  return true;
-}
-
-function validatePassword(password, event) {
-  if (password.trim() == "") {
-    $("#password-feedback").empty().text("Please enter your password").css("color", "red");
-    event.preventDefault();
-    return false;
-  }
-  $("#password-feedback").empty();
-  return true;
-}
-
-function validateTextArea(textarea, event) {
-  if (textarea.trim() == "" || textarea.length < 10) {
-    $("#message-feedback").empty().text("Please enter your message").css("color", "red");
-    event.preventDefault();
-    return false;
-  }
-  $("#message-feedback").empty();
-  return true;
-}
-
-function validateCheckbox(check, event) {
-  if (check === false) {
-    $("#checkbox-feedback").empty().text("Please check the checkbox").css("color", "red");
-    event.preventDefault();
-    return false;
-  }
-  $("#checkbox-feedback").empty();
-  return true;
-}
+})
